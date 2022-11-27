@@ -15,7 +15,7 @@ const Detalle = () => {
     useEffect(()=>{
       Axios.get(`${SERVER_URL}upload/factura/${idFact}`)
         .then((res) => {
-          console.log(res.data)
+       
           setData(res.data)
         })
     }, [])
