@@ -26,6 +26,8 @@ export default function RegistroCliente() {
   Axios.defaults.withCredentials = false;
   const SERVER_URL = process.env.REACT_APP_SERVER_URL
   const serverRegisterReq = async () => {
+    localStorage.setItem('nombre', nombre)
+    localStorage.setItem('cedula', cedula)
     Axios.post(`${SERVER_URL}upload/Client`, {
       nombre  : nombre,
       cedula  : cedula,

@@ -12,10 +12,13 @@ const Detalle = () => {
     const [loading, setLoading] = useState(true);
     const SERVER_URL = process.env.REACT_APP_SERVER_URL
 
+  const nombreCliente =  localStorage.getItem('nombre')
+   const cedulaCliente = localStorage.getItem('cedula')
+
     useEffect(()=>{
       Axios.get(`${SERVER_URL}upload/factura/${idFact}`)
         .then((res) => {
-       
+          console.log(res.data)
           setData(res.data)
         })
     }, [])
@@ -52,16 +55,16 @@ const Detalle = () => {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                <td>Id</td>
+             
                 <td>Nombre</td>
                 <td>cedula</td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{data[1][0].idCliente}</td>
-                  <td>{data[1][0].nombreCliente}</td>
-                  <td>{data[1][0].cedulaCliente}</td>
+           
+                  <td>{nombreCliente}</td>
+                  <td>{cedulaCliente}</td>
                 </tr>
               </tbody>
             </Table>
